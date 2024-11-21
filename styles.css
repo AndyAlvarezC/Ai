@@ -11,6 +11,8 @@
     --secondary-color: #3B82F6;
     --hover-color: #38BDF8;
     --text-color: #E5E7EB;
+    --secondary-text-color: #94A3B8;
+    --shadow-color: rgba(59, 130, 246, 0.3);
 }
 
 body {
@@ -20,22 +22,41 @@ body {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--text-color);
 }
 
-/* Header section */
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: width 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--shadow-color);
+    border-radius: 10px;
+    border: 3px solid var(--primary-color);
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--track-color);
+    border-radius: 10px;
+}
+
+/* Header Section */
 header {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding: 3rem 10rem;
+    padding: 2rem 10rem;
     font-size: 1.3rem;
     font-weight: bold;
 }
 
 .logo {
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
 nav ul {
@@ -45,21 +66,98 @@ nav ul {
     gap: 2rem;
 }
 
+.logo:hover,
+nav ul li a:hover {
+    background: linear-gradient(to right, var(--secondary-color), var(--hover-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 nav ul .btn {
     background: linear-gradient(to right, var(--secondary-color), var(--hover-color));
     color: var(--text-color);
     border: none;
     border-radius: 0.5rem;
-    width: 12rem;
+    width: 14rem;
     padding: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    box-shadow: 4px 10px 20px var(--shadow-color);
 }
 
 nav ul .btn:hover {
     background-color: var(--hover-color);
-    box-shadow: 4px 6px 15px rgba(59, 130, 246, 0.3);
+    box-shadow: 4px 10px 40px var(--shadow-color);
+}
+/* End of Header*/
+
+/* Home Section */
+#home {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 4rem auto;;
+    max-width: 80%;
 }
 
+.home-text h3 {
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.home-text h2 {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    margin: auto;
+    padding: 3rem 0;
+    width: 100%;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.home-text .btn {
+    background: linear-gradient(to right, var(--secondary-color), var(--hover-color));
+    color: var(--text-color);
+    border: none;
+    border-radius: 0.5rem;
+    width: 15rem;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+    margin: 5rem auto;
+}
+
+.home-text .btn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 20px 80px rgba(59, 130, 246, 0.3);
+}
+
+.benefits-text {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin: 4rem auto 0 auto;
+}
+
+.benefits-text h3 {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.benefits-text img {
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(to right, var(--secondary-color), var(--hover-color));;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+/* End of Home Section*/
