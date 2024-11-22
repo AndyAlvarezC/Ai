@@ -18,6 +18,7 @@
 body {
     background-color: var(--main-color);
     color: var(--text-color);
+    display: grid;
 }
 
 a {
@@ -43,15 +44,27 @@ a {
     border-radius: 10px;
 }
 
+::selection {
+    background-color: #7069FF;
+}
+
 /* Header Section */
 header {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    height: auto;
+    top: 0;
     padding: 2rem 10rem;
     font-size: 1.2rem;
     font-weight: bold;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 100;
 }
 
 .logo {
@@ -98,7 +111,7 @@ nav ul .btn:hover {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 4rem auto;
+    margin: 3rem auto;
 }
 
 .home-text h3 {
@@ -130,7 +143,7 @@ nav ul .btn:hover {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
-    margin: 5rem auto;
+    margin: 6rem auto;
 }
 
 .home-text .btn:hover {
@@ -162,3 +175,58 @@ nav ul .btn:hover {
     margin-right: 0.5rem;
 }
 /* End of Home Section*/
+
+/* How it Works Section */
+#progress {
+    padding: 4rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+#progress h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: var(--secondary-color);
+    background: linear-gradient(to right, var(--secondary-color), var(--hover-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.progress-card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--hover-color);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    padding: 2rem;
+    width: calc(25% - 2rem);
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.progress-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px var(--shadow-color);
+    border-color: var(--secondary-color);
+}
+
+.progress-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.progress-card p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--secondary-text-color);
+}
+/* End of How it Works Section */
